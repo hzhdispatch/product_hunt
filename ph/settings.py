@@ -120,3 +120,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')#搜集完了放到根目录去
+
+STATIC_DIRS = [
+    os.path.join(BASE_DIR, 'products/static/'), #告诉去哪里搜集
+]
