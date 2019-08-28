@@ -1,0 +1,22 @@
+{% extends "theme.html" %}
+
+{% block content %}
+
+<h2 align="center">登录Product Hunt账户</h2>
+<br>
+<form method="POST" action= ' {% url '登录页面' %} ' align="center">
+	{% csrf_token %} <!--防止跨站脚本攻击-->
+	用户名：
+		<br>
+	<input type="text" name="用户名">
+		<br>
+	密码：
+		<br>
+	<input type="password" name="密码">
+		<br>
+		{{错误}}
+		<br>
+	<input class='btn btn-primary' type="submit" value ="登录">
+</form>
+
+{% endblock content %}

@@ -35,7 +35,7 @@
   </head>
   <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#">
+	<a class="navbar-brand" href=" {% url '主页' %} ">
 	  <img src=" {% static "logo_P.png" %} " height="6%">
 	  Product Hunt
 	</a>
@@ -44,8 +44,16 @@
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	    <div class="navbar-nav ml-auto">
-	      <a class="nav-item nav-link" href="#">登录</a>
+        {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href="Javascript:{document.getElementById('退出').submit()} ">退出</a>
+          <form id='退出' method="POST" action= " {% url '退出页面' %} " align="center">
+            {% csrf_token %} <!--防止跨站脚本攻击-->
+            <input type="hidden" >
+          </form>
+        {% else %}
+	      <a class="nav-item nav-link" href=" {% url '登录页面' %} ">登录</a>
 	      <a class="nav-item nav-link" href=" {% url '注册页面' %} ">注册</a>
+        {% endif %}
 	    </div>
 	  </div>
 	</nav>
