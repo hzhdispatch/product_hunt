@@ -45,6 +45,8 @@
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	    <div class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href=" {% url '发布页面' %} ">发布</a>
+        
         <a class="nav-item nav-link" href="Javascript:{document.getElementById('退出').submit()} ">退出</a>
           <form id='退出' method="POST" action= " {% url '退出页面' %} " align="center">
             {% csrf_token %} <!--防止跨站脚本攻击-->

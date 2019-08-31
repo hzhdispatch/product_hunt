@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'ph.urls'
 
 TEMPLATES = [
@@ -126,3 +127,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')#搜集完了放到根目录去
 STATIC_DIRS = [
     os.path.join(BASE_DIR, 'products/static/'), #告诉去哪里搜集
 ]
+
+MEDIA_URL = '/media/' #放可能经常会改变的图片
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  #上面有路径的模板
