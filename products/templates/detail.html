@@ -1,0 +1,18 @@
+{% extends "theme.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">		
+	<div class="card" style="width: 18rem;">
+		<img lass="card-img-top" src="{{product.icon.url}}" alt="Card image cap">
+		</div>
+	<div class="col-md-8" style="padding-left:30px">
+		<h3>{{product.title}}</h3>
+		<br>
+		{{product.intro}}
+	</div>
+</div>
+</div>
+
+{% endblock content %}

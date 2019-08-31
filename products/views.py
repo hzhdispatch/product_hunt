@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required#导入装饰器
 from .models import Product
 from django.utils import timezone 
@@ -8,7 +8,13 @@ from django.contrib.auth.models import User
 
 
 def product_list(request):
-	return render(request, 'product_list.html')
+	products = Product.objects
+	return render(request, 'product_list.html',{"products":products})
+
+def detail(request,product_id):
+	product = get_object_or_404(Product, pk=product_id)
+	return render(request, 'detail.html',{"product":product})
+
 
 @login_required#只有用户登录才能获取到发布页面
 def publish(request):
